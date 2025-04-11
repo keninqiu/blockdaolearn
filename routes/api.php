@@ -1,8 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\LanguageController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\LanguageController;
+use App\Http\Controllers\Api\PostController;
 
 Route::group([
     'middleware' => 'auth:api',

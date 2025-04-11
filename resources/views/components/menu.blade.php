@@ -1,7 +1,9 @@
-<header class="bg-white border-b border-gray-300 w-full p-4">
+<header class="fixed top-0 bg-white border-b border-gray-300 w-full p-4">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
+        
         <!-- Left Side: Menu (desktop) -->
-        <div class="flex space-x-6 hidden md:flex">
+        <div class="flex space-x-6 md:flex">
+            
             <!-- Menu 1 with Dropdown Arrow -->
             @foreach($menuItems as $menu)
             <div class="relative group">
@@ -48,6 +50,7 @@
     </div>
 
     <!-- Mobile Menu (Hidden by default) -->
+     <!--
     <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-300 hidden">
     <ul class="space-y-2 mt-3">
         @foreach($menuItems as $menu)
@@ -64,6 +67,7 @@
         @endforeach
     </ul>
     </div>
+-->
 </header>
 
 <script>
