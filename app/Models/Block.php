@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Block extends Model
 {
     public $timestamps = false;
     use HasFactory;
@@ -14,12 +14,12 @@ class Category extends Model
      *
      * @var string
      */
-    protected $table = 'categories';
+    protected $table = 'blocks';
 
     protected $fillable = [
-        'parent_id',
-        'slug',
-        'title',
+        'post_id',
+        'type',
+        'content',
         'order'
     ];
 }

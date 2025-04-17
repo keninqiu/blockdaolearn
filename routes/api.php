@@ -5,6 +5,8 @@ use App\Http\Controllers\Api\LanguageController;
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CategoryPostMapController;
+use App\Http\Controllers\Api\BlockController;
+
 Route::group([
     'middleware' => 'auth:api',
 ], function ($router) {
@@ -37,11 +39,19 @@ Route::group([
 
 Route::group([], function ($router) {
     Route::get('categories', [CategoryController::class, 'all']);
-});
-
-Route::group([], function ($router) {
     Route::get('categories/{slug}', [CategoryController::class, 'getBySlug']);
 });
+
+Route::group([
+    'middleware' => 'auth:api',
+], function ($router) {
+    Route::group([], function ($router) {
+        Route::get('blocks/post/{postId}', [BlockController::class, 'getByPostId']);
+        Route::post('blocks/post/{postId}', [BlockController::class, 'saveByPostId']);
+    });
+});
+
+
 
 Route::group([
     'middleware' => 'auth:api',
