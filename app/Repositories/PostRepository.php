@@ -5,24 +5,23 @@ use App\Models\Post;
 
 class PostRepository {
     static function getAll() {
-        $posts = Post::with('language')->get();
+        $posts = Post::get();
         return $posts;
     }
 
     static function getById($id) {
-        return Post::with('language')->find($id);
+        return Post::find($id);
     }
 
     static function getBySlug($slug) {
-        return Post::with('language')->where('slug', $slug)->first();
+        return Post::where('slug', $slug)->first();
     }
     
     static function update(
-        $id, $userId, $languageId, $slug, $title, $content, $image
+        $id, $userId, $slug, $title, $content, $image
     ) {
         $post = Post::find($id);
         $post->user_id = $userId;
-        $post->language_id = $languageId;
         $post->slug = $slug;
         $post->title = $title;
         $post->content = $content;
@@ -34,11 +33,10 @@ class PostRepository {
         return $post;
     }
     static function create(
-        $userId, $languageId, $slug, $title, $content, $image
+        $userId, $slug, $title, $content, $image
     ) {
         $postData = [
             'user_id' => $userId,
-            'language_id' => $languageId,
             'slug' => $slug,
             'title' => $title,
             'content' => $content,

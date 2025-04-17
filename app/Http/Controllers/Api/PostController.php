@@ -22,7 +22,6 @@ class PostController extends Controller
     public function create(Request $request) 
     {
         $user = auth()->user();
-        $languageId = $request->language;
         $slug = $request->slug;
         $title = $request->title;
         $content = $request->content;
@@ -39,7 +38,7 @@ class PostController extends Controller
         }
 
         $post = PostRepository::create(
-            $user->id, $languageId, $slug, $title, $content, $image
+            $user->id, $slug, $title, $content, $image
         );
 
         return response()->json([
@@ -53,7 +52,6 @@ class PostController extends Controller
     {
         $id = $request->id;
         $user = auth()->user();
-        $languageId = $request->language;
         $slug = $request->slug;
         $title = $request->title;
         $content = $request->content;
@@ -70,7 +68,7 @@ class PostController extends Controller
         }
 
         $post = PostRepository::update(
-            $id, $user->id, $languageId, $slug, $title, $content, $image
+            $id, $user->id, $slug, $title, $content, $image
         );
 
         return response()->json([
@@ -80,10 +78,10 @@ class PostController extends Controller
         ]); 
     }
 
-    public function getById(Request $request) 
+    public function getBySlug(Request $request) 
     {
-        $id = $request->id;
-        $item = PostRepository::getById($id);
+        $slug = $request->slug;
+        $item = PostRepository::getBySlug($slug);
         return response()->json([
             'code' => 0,
             'data' => $item,

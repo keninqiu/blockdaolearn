@@ -3,7 +3,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\LanguageController;
 use App\Http\Controllers\Api\PostController;
-
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\CategoryPostMapController;
 Route::group([
     'middleware' => 'auth:api',
 ], function ($router) {
@@ -35,11 +36,26 @@ Route::group([
 });
 
 Route::group([], function ($router) {
+    Route::get('categories', [CategoryController::class, 'all']);
+});
+
+Route::group([], function ($router) {
+    Route::get('categories/{slug}', [CategoryController::class, 'getBySlug']);
+});
+
+Route::group([
+    'middleware' => 'auth:api',
+], function ($router) {
+    Route::post('categories', [CategoryController::class, 'create']);
+    Route::post('categories/{id}', [CategoryController::class, 'update']);
+});
+
+Route::group([], function ($router) {
     Route::get('posts', [PostController::class, 'all']);
 });
 
 Route::group([], function ($router) {
-    Route::get('posts/{id}', [PostController::class, 'getById']);
+    Route::get('posts/{slug}', [PostController::class, 'getBySlug']);
 });
 
 Route::group([
@@ -47,4 +63,20 @@ Route::group([
 ], function ($router) {
     Route::post('posts', [PostController::class, 'create']);
     Route::post('posts/{id}', [PostController::class, 'update']);
+});
+
+
+Route::group([], function ($router) {
+    Route::get('category_post_maps', [CategoryPostMapController::class, 'all']);
+});
+
+Route::group([], function ($router) {
+    Route::get('category_post_maps/{id}', [CategoryPostMapController::class, 'getById']);
+});
+
+Route::group([
+    'middleware' => 'auth:api',
+], function ($router) {
+    Route::post('category_post_maps', [CategoryPostMapController::class, 'create']);
+    Route::post('category_post_maps/{id}', [CategoryPostMapController::class, 'update']);
 });

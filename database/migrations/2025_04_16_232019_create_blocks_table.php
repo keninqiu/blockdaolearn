@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('post_id');
             $table->string('type');
             $table->longText('content');
-            $table->integer('order');
+            $table->integer('order')->default(0);
         });
     }
 
