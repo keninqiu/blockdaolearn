@@ -18,13 +18,12 @@ class PostRepository {
     }
     
     static function update(
-        $id, $userId, $slug, $title, $content, $image
+        $id, $userId, $slug, $title, $image
     ) {
         $post = Post::find($id);
         $post->user_id = $userId;
         $post->slug = $slug;
         $post->title = $title;
-        $post->content = $content;
         if($image) {
             $post->image = $image;
         }
@@ -33,13 +32,12 @@ class PostRepository {
         return $post;
     }
     static function create(
-        $userId, $slug, $title, $content, $image
+        $userId, $slug, $title, $image
     ) {
         $postData = [
             'user_id' => $userId,
             'slug' => $slug,
             'title' => $title,
-            'content' => $content,
             'image' => $image
         ];
         $post = Post::create($postData);
