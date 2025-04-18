@@ -6,7 +6,10 @@ use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CategoryPostMapController;
 use App\Http\Controllers\Api\BlockController;
-
+use App\Http\Controllers\Api\LessonController;
+use App\Http\Controllers\Api\MiniController;
+use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\DegreeController;
 Route::group([
     'middleware' => 'auth:api',
 ], function ($router) {
@@ -62,6 +65,54 @@ Route::group([
 
 Route::group([], function ($router) {
     Route::get('posts', [PostController::class, 'all']);
+});
+
+Route::group([], function ($router) {
+    Route::get('lessons', [LessonController::class, 'all']);
+    Route::get('lessons/{slug}', [LessonController::class, 'getBySlug']);
+});
+
+Route::group([
+    'middleware' => 'auth:api',
+], function ($router) {
+    Route::post('lessons', [LessonController::class, 'create']);
+    Route::post('lessons/{id}', [LessonController::class, 'update']);
+});
+
+Route::group([], function ($router) {
+    Route::get('minis', [MiniController::class, 'all']);
+    Route::get('minis/{slug}', [MiniController::class, 'getBySlug']);
+});
+
+Route::group([
+    'middleware' => 'auth:api',
+], function ($router) {
+    Route::post('minis', [MiniController::class, 'create']);
+    Route::post('minis/{id}', [MiniController::class, 'update']);
+});
+
+Route::group([], function ($router) {
+    Route::get('courses', [CourseController::class, 'all']);
+    Route::get('courses/{slug}', [CourseController::class, 'getBySlug']);
+});
+
+Route::group([
+    'middleware' => 'auth:api',
+], function ($router) {
+    Route::post('courses', [CourseController::class, 'create']);
+    Route::post('courses/{id}', [CourseController::class, 'update']);
+});
+
+Route::group([], function ($router) {
+    Route::get('degrees', [DegreeController::class, 'all']);
+    Route::get('degrees/{slug}', [DegreeController::class, 'getBySlug']);
+});
+
+Route::group([
+    'middleware' => 'auth:api',
+], function ($router) {
+    Route::post('degrees', [DegreeController::class, 'create']);
+    Route::post('degrees/{id}', [DegreeController::class, 'update']);
 });
 
 Route::group([], function ($router) {
