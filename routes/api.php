@@ -5,6 +5,10 @@ use App\Http\Controllers\Api\LanguageController;
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CategoryPostMapController;
+use App\Http\Controllers\Api\MiniPostMapController;
+use App\Http\Controllers\Api\LessonPostMapController;
+use App\Http\Controllers\Api\CourseLessonMapController;
+use App\Http\Controllers\Api\DegreeCourseMapController;
 use App\Http\Controllers\Api\BlockController;
 use App\Http\Controllers\Api\LessonController;
 use App\Http\Controllers\Api\MiniController;
@@ -129,9 +133,6 @@ Route::group([
 
 Route::group([], function ($router) {
     Route::get('category_post_maps', [CategoryPostMapController::class, 'all']);
-});
-
-Route::group([], function ($router) {
     Route::get('category_post_maps/{id}', [CategoryPostMapController::class, 'getById']);
 });
 
@@ -140,4 +141,52 @@ Route::group([
 ], function ($router) {
     Route::post('category_post_maps', [CategoryPostMapController::class, 'create']);
     Route::post('category_post_maps/{id}', [CategoryPostMapController::class, 'update']);
+});
+
+Route::group([], function ($router) {
+    Route::get('mini_post_maps', [MiniPostMapController::class, 'all']);
+    Route::get('mini_post_maps/{id}', [MiniPostMapController::class, 'getById']);
+});
+
+Route::group([
+    'middleware' => 'auth:api',
+], function ($router) {
+    Route::post('mini_post_maps', [MiniPostMapController::class, 'create']);
+    Route::post('mini_post_maps/{id}', [MiniPostMapController::class, 'update']);
+});
+
+Route::group([], function ($router) {
+    Route::get('lesson_post_maps', [LessonPostMapController::class, 'all']);
+    Route::get('lesson_post_maps/{id}', [LessonPostMapController::class, 'getById']);
+});
+
+Route::group([
+    'middleware' => 'auth:api',
+], function ($router) {
+    Route::post('lesson_post_maps', [LessonPostMapController::class, 'create']);
+    Route::post('lesson_post_maps/{id}', [LessonPostMapController::class, 'update']);
+});
+
+Route::group([], function ($router) {
+    Route::get('course_lesson_maps', [CourseLessonMapController::class, 'all']);
+    Route::get('course_lesson_maps/{id}', [CourseLessonMapController::class, 'getById']);
+});
+
+Route::group([
+    'middleware' => 'auth:api',
+], function ($router) {
+    Route::post('course_lesson_maps', [CourseLessonMapController::class, 'create']);
+    Route::post('course_lesson_maps/{id}', [CourseLessonMapController::class, 'update']);
+});
+
+Route::group([], function ($router) {
+    Route::get('degree_course_maps', [DegreeCourseMapController::class, 'all']);
+    Route::get('degree_course_maps/{id}', [DegreeCourseMapController::class, 'getById']);
+});
+
+Route::group([
+    'middleware' => 'auth:api',
+], function ($router) {
+    Route::post('degree_course_maps', [DegreeCourseMapController::class, 'create']);
+    Route::post('degree_course_maps/{id}', [DegreeCourseMapController::class, 'update']);
 });

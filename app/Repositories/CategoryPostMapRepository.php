@@ -5,8 +5,8 @@ use App\Models\CategoryPostMap;
 
 class CategoryPostMapRepository {
     static function getAll() {
-        $posts = CategoryPostMap::with('category')->with('post')->get();
-        return $posts;
+        $items = CategoryPostMap::with('category')->with('post')->get();
+        return $items;
     }
 
     static function getById($id) {
