@@ -12,7 +12,7 @@ window.addEventListener("message", (event) => {
       const narrator = document.createElement('div');
       narrator.textContent = step.description;
       narrator.style.position = 'fixed';
-      narrator.style.bottom = '20px';
+      narrator.style.bottom = '30px';
       narrator.style.left = '50%';
       narrator.style.transform = 'translateX(-50%)';
       narrator.style.background = '#1E1E1E';
@@ -20,7 +20,7 @@ window.addEventListener("message", (event) => {
       narrator.style.padding = '10px 20px';
       narrator.style.borderRadius = '10px';
       narrator.style.zIndex = 9999;
-      narrator.style.fontSize = '16px';
+      narrator.style.fontSize = '24px';
       narrator.style.fontFamily = 'sans-serif';
       document.body.appendChild(narrator);    
       
