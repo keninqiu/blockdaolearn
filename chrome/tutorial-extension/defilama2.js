@@ -39,10 +39,11 @@ const steps = [
     { delay: 4000,  description: "中性策略的目的是在少承担多空风险的情况下获取稳定收益"},
     { delay: 4000,  description: "这种策略在牛市或熊市中都尽量维持收益"},
     { delay: 4000,  description: "不依赖资产价格的上涨或下跌"},
-    { delay: 4000,  description: "23年走低，24年又开始走高" },
-    { delay: 4000,  description: "在24年底的时候又是一个小高潮" },
-    { delay: 3000,  description: "到现在一路走低" },
-    { delay: 4000,  description: "这个就是TVL，一个很重要的参考指标" },
+
+    { delay: 4000,  description: "当然了，有些策略的收益很高" },
+    { delay: 4000,  description: "往往是一些新的小众协议" },
+    { delay: 3000,  description: "风险也很高" },
+    { delay: 4000,  description: "例如第一位的年化收益率2000多倍" },
     
     
     { delay: 3000,  description: "下面是各个协议排名" },
