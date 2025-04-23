@@ -1,4 +1,3 @@
-const steps = require('./defalama1');
 window.addEventListener("message", (event) => {
     if (event.data.action === "run-tutorial") {
       startTutorial();

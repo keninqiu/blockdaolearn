@@ -14,7 +14,7 @@
     "content_scripts": [
       {
         "matches": ["https://defillama.com/*"],
-        "js": ["content.js"]
+        "js": ["defilama2.js","content.js"]
       }
     ]
   }
