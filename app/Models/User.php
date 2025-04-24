@@ -22,6 +22,8 @@ class User extends Authenticatable implements LaratrustUser, JWTSubject
      */
     protected $fillable = [
         'name',
+        'nickname',
+        'avatar',
         'email',
         'password',
     ];

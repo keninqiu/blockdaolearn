@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Mini extends Model
 {
-    public $timestamps = false;
     use HasFactory;
     /**
      * The table associated with the model.
@@ -20,8 +20,14 @@ class Mini extends Model
         'user_id',
         'slug',
         'title',
+        'content',
         'order',
         'reading_time',
         'xp'
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -24,12 +24,24 @@ class MiniController extends Controller
         $user = auth()->user();
         $slug = $request->slug;
         $title = $request->title;
+        $content = $request->content;
         $order = $request->order;
         $readingTime = $request->reading_time;
         $xp = $request->xp;
 
+        $image = '';
+        // Store the file
+        if ($request->file('image')) {
+            // Validate the request
+            $request->validate([
+                'image' => 'file|mimes:jpg,png,webp,jpeg|max:2048', // Adjust validation rules as needed
+            ]);
+            $image = $request->file('image')->store('images', 'public'); // Store in the 'public/logos' directory
+            $image = 'storage/' . $image;
+        }
+
         $item = MiniRepository::create(
-            $user->id, $slug, $title, $order, $readingTime, $xp
+            $user->id, $slug, $title, $content, $order, $readingTime, $xp, $image 
         );
 
         return response()->json([
@@ -45,12 +57,22 @@ class MiniController extends Controller
         $id = $request->id;
         $slug = $request->slug;
         $title = $request->title;
+        $content = $request->content;
         $order = $request->order;
         $readingTime = $request->reading_time;
         $xp = $request->xp;
-
+        $image= '';
+        // Store the file
+        if ($request->file('image')) {
+            // Validate the request
+            $request->validate([
+                'image' => 'file|mimes:jpg,png,webp,jpeg|max:2048', // Adjust validation rules as needed
+            ]);
+            $image = $request->file('image')->store('images', 'public'); // Store in the 'public/logos' directory
+            $image = 'storage/' . $image;
+        }
         $item = MiniRepository::update(
-            $id, $user->id, $slug, $title, $order, $readingTime, $xp
+            $id, $user->id, $slug, $title, $content, $order, $readingTime, $xp, $image 
         );
 
         return response()->json([

@@ -16,6 +16,7 @@
                 <ul class="space-y-4">
                     @foreach($menu['subMenu'] as $subMenu)
                     <li class="flex items-center space-x-4 hover:bg-gray-100 cursor-pointer rounded-md">
+                        <a href="{{$subMenu['link']}}">
                         <!-- Image -->
                         <img src="{{$subMenu['image']}}" alt="{{$subMenu['title']}}" class="w-12 h-12 object-cover rounded-full">
 
@@ -24,6 +25,7 @@
                             <h3 class="text-lg font-semibold">{{$subMenu['title']}}</h3>
                             <p class="text-sm text-gray-500">{{$subMenu['subtitle']}}</p>
                         </div>
+                        </a>
                     </li>
                     @endforeach
                 </ul>
