@@ -1,0 +1,93 @@
+🧱 阶段一：基础入门（适合完全新手）
+1. 什么是智能合约？以太坊的工作原理
+区块链基础
+
+以太坊网络结构
+
+什么是EVM、Gas等基本概念
+
+2. Solidity 简介与开发环境搭建
+Remix 使用教学（无需本地环境）
+
+VSCode + Hardhat 环境搭建
+
+MetaMask 钱包连接简介
+
+3. 第一个合约：Hello World 智能合约
+编写部署一个最简单的合约
+
+编译、部署与调用函数
+
+用 Remix 进行交互
+
+🔨 阶段二：Solidity 基础语法与实战
+4. Solidity 数据类型与函数写法
+基础类型（uint, string, bool 等）
+
+struct、mapping、数组等
+
+可见性、纯函数、视图函数等
+
+5. 事件与日志
+event 的用途
+
+如何监听与查看事件
+
+6. 权限控制
+msg.sender、onlyOwner
+
+使用 OpenZeppelin 的 Ownable
+
+7. 错误处理与重入攻击介绍
+require, assert, revert
+
+重入攻击的原理与防御措施（使用 ReentrancyGuard）
+
+💰 阶段三：进阶开发与实战项目
+8. 部署与交互：Hardhat 全流程
+编译、部署脚本
+
+写测试（Chai + Mocha）
+
+使用 ethers.js 与合约交互
+
+9. 创建一个 ERC20 代币
+手写 or 使用 OpenZeppelin 模板
+
+添加自定义逻辑（如交易手续费）
+
+10. 编写一个简单的众筹/投票/拍卖合约
+mapping 管理资金流
+
+多人参与的合约结构设计
+
+🔐 阶段四：安全与上线
+11. 智能合约常见漏洞与安全检查
+重入攻击、整数溢出、权限控制不当
+
+工具：Slither、MythX 简介
+
+12. 合约优化与 Gas 节省技巧
+内存 vs storage
+
+函数合并、循环优化等
+
+13. 合约部署上线流程
+部署到 Goerli 或 Sepolia 测试网
+
+主网上线注意事项
+
+区块浏览器验证（Etherscan 验证合约）
+
+📦 阶段五：生态工具与集成
+14. 与前端交互：React + ethers.js
+创建 Web3 前端页面
+
+调用合约函数、监听事件
+
+15. 使用 IPFS、Chainlink、The Graph 等工具
+实现去中心化存储
+
+外部数据预言机
+
+数据索引与查询
