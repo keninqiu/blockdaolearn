@@ -6,4 +6,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-require __DIR__.'/web/mini.php';
+require __DIR__.'/web/course.php';

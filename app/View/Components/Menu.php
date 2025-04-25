@@ -18,9 +18,7 @@ class Menu extends Component
             [
                 'label' => '学习',
                 'subMenu' => [
-                    ['image' => '/images/minicourse.png', 'title' => '微课程', 'subtitle' => '通过微课程开始你的区块链开发者职业生涯', 'link' => '/minis'],
-                    ['image' => '/images/minicourse.png', 'title' => '普通课程', 'subtitle' => '深入研究特定主题以促进你的职业发展', 'link' => '#'],
-                    ['image' => '/images/minicourse.png', 'title' => '学位课程', 'subtitle' => '按照一个结构化的路径来为成功做好准备', 'link' => '#'],
+                    ['image' => '/images/minicourse.png', 'title' => '课程', 'subtitle' => '通过课程开始你的区块链开发者职业生涯', 'link' => '/courses'],
                 ]
             ],
             [

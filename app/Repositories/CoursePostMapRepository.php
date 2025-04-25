@@ -1,39 +1,39 @@
 <?php
 namespace App\Repositories;
 use Illuminate\Support\Facades\Log;
-use App\Models\MiniPostMap;
+use App\Models\CoursePostMap;
 
-class MiniPostMapRepository {
+class CoursePostMapRepository {
     static function getAll() {
-        $items = MiniPostMap::with('mini')->with('post')->get();
+        $items = CoursePostMap::with('course')->with('post')->get();
         return $items;
     }
 
     static function getById($id) {
-        return MiniPostMap::with('mini')->with('post')->find($id);
+        return CoursePostMap::with('course')->with('post')->find($id);
     }
 
     
     static function update(
-        $id, $userId, $miniId, $postId
+        $id, $userId, $courseId, $postId
     ) {
-        $item = MiniPostMap::find($id);
+        $item = CoursePostMap::find($id);
         $item->user_id = $userId;
-        $item->mini_id = $miniId;
+        $item->course_id = $courseId;
         $item->post_id = $postId;
         
         $item->save();
         return $item;
     }
     static function create(
-        $userId, $miniId, $postId
+        $userId, $courseId, $postId
     ) {
         $data = [
             'user_id' => $userId,
-            'mini_id' => $miniId,
+            'course_id' => $courseId,
             'post_id' => $postId
         ];
-        $item = MiniPostMap::create($data);
+        $item = CoursePostMap::create($data);
         return $item;
     }
 }

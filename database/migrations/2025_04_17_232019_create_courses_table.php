@@ -17,9 +17,11 @@ return new class extends Migration
             $table->string('image')->nullable(); 
             $table->string('slug')->unique(); 
             $table->string('title'); 
+            $table->string('content');
             $table->integer('order')->default(0);
             $table->integer('reading_time')->nullable(); 
             $table->integer('xp')->nullable(); 
+            $table->string('views')->default(0);
             $table->timestamps();
         });
     }

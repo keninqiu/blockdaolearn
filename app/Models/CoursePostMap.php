@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class LessonPostMap extends Model
+class CoursePostMap extends Model
 {
     public $timestamps = false;
     use HasFactory;
@@ -15,17 +15,17 @@ class LessonPostMap extends Model
      *
      * @var string
      */
-    protected $table = 'lesson_post_maps';
+    protected $table = 'course_post_maps';
 
     protected $fillable = [
         'user_id',
-        'lesson_id',
+        'course_id',
         'post_id'
     ];
 
-    public function lesson(): BelongsTo
+    public function course(): BelongsTo
     {
-        return $this->belongsTo(Lesson::class);
+        return $this->belongsTo(Course::class);
     }
 
     public function post(): BelongsTo

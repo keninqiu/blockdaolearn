@@ -15,7 +15,7 @@ class CourseController extends Controller
         return response()->json([
             'code' => 0,
             'data' => $items,
-            'message' => 'Get minis successfully'
+            'message' => 'Get courses successfully'
         ]);
     }
 
@@ -24,18 +24,30 @@ class CourseController extends Controller
         $user = auth()->user();
         $slug = $request->slug;
         $title = $request->title;
+        $content = $request->content;
         $order = $request->order;
         $readingTime = $request->reading_time;
         $xp = $request->xp;
 
+        $image= '';
+        // Store the file
+        if ($request->file('image')) {
+            // Validate the request
+            $request->validate([
+                'image' => 'file|mimes:jpg,png,webp,jpeg|max:2048', // Adjust validation rules as needed
+            ]);
+            $image = $request->file('image')->store('courses', 'public'); // Store in the 'public/logos' directory
+            $image = 'storage/' . $image;
+        }
+
         $item = CourseRepository::create(
-            $user->id, $slug, $title, $order, $readingTime, $xp
+            $user->id, $slug, $title, $content, $order, $readingTime, $xp, $image
         );
 
         return response()->json([
             'code' => 0,
             'data' => $item,
-            'message' => 'Successfully create mini'
+            'message' => 'Successfully create course'
         ]); 
     }
 
@@ -45,18 +57,30 @@ class CourseController extends Controller
         $id = $request->id;
         $slug = $request->slug;
         $title = $request->title;
+        $content = $request->content;
         $order = $request->order;
         $readingTime = $request->reading_time;
         $xp = $request->xp;
 
+        $image= '';
+        // Store the file
+        if ($request->file('image')) {
+            // Validate the request
+            $request->validate([
+                'image' => 'file|mimes:jpg,png,webp,jpeg|max:2048', // Adjust validation rules as needed
+            ]);
+            $image = $request->file('image')->store('courses', 'public'); // Store in the 'public/logos' directory
+            $image = 'storage/' . $image;
+        }
+
         $item = CourseRepository::update(
-            $id, $user->id, $slug, $title, $order, $readingTime, $xp
+            $id, $user->id, $slug, $title, $content, $order, $readingTime, $xp, $image
         );
 
         return response()->json([
             'code' => 0,
             'data' => $item,
-            'message' => 'Successfully update mini'
+            'message' => 'Successfully update course'
         ]); 
     }    
 
@@ -67,7 +91,7 @@ class CourseController extends Controller
         return response()->json([
             'code' => 0,
             'data' => $item,
-            'message' => 'Get mini successfully'
+            'message' => 'Get course successfully'
         ]);
     }
 }

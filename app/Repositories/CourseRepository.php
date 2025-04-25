@@ -18,29 +18,35 @@ class CourseRepository {
     }
     
     static function update(
-        $id, $userId, $slug, $title, $order, $readingTime, $xp
+        $id, $userId, $slug, $title, $content, $order, $readingTime, $xp, $image
     ) {
         $item = Course::find($id);
         $item->user_id = $userId;
         $item->slug = $slug;
         $item->title = $title;
+        $item->content = $content;
         $item->order = $order;
         $item->reading_time = $readingTime;
         $item->xp = $xp;
 
+        if($image) {
+            $item->image = $image;
+        }
         $item->save();
         return $item;
     }
     static function create(
-        $userId, $slug, $title, $order, $readingTime, $xp
+        $userId, $slug, $title, $content, $order, $readingTime, $xp, $image
     ) {
         $data = [
             'user_id' => $userId,
             'slug' => $slug,
             'title' => $title,
+            'content' => $content,
             'order' => $order,
             'reading_time' => $readingTime,
-            'xp' => $xp
+            'xp' => $xp,
+            'image' => $image
         ];
         $item = Course::create($data);
         return $item;
