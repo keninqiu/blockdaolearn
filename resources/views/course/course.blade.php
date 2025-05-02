@@ -1,5 +1,10 @@
 @extends('layouts.main')
 @section('content')
+
+<script>
+  window.coursePosts = @json($posts);
+</script>
+
 <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4 w-full">
   <!-- Image -->
   <img src="/{{$course->image}}" alt="{{$course->title}}" class="mb-4 rounded-xl shadow-lg" />

@@ -1,5 +1,21 @@
 <!-- Alpine Component Wrapper -->
-<div x-data="{ showModal: false }" class="relative z-0">
+<div x-data="{
+    showModal: false,
+    posts: window.coursePosts,
+    currentIndex: 0,
+    get currentPost() {
+      return this.posts[this.currentIndex];
+    },
+    next() {
+      if (this.currentIndex < this.posts.length - 1) this.currentIndex++;
+    },
+    back() {
+      if (this.currentIndex > 0) this.currentIndex--;
+    },
+    close() {
+        this.showModal = false;
+    }
+  }" class="relative z-0">
 
   <!-- Trigger Button -->
   <div class="p-6">
@@ -37,14 +53,26 @@
 
         <!-- Scrollable Content -->
         <div class="flex-1 overflow-y-auto mt-20 mb-20 px-6 py-4">
-          @include('course.post')
+          @foreach ($posts as $index => $p)
+            <div x-show="currentIndex === {{ $index }}" x-cloak>
+              @include('course.post', ['post' => $p])
+            </div>
+          @endforeach
         </div>
 
         <!-- Footer -->
         <div class="fixed bottom-0 w-full z-10 flex items-center justify-between px-6 py-4 bg-gray-50 border-t border-gray-200">
-          <button class="text-blue-600 hover:underline">← Back</button>
-          <h2 class="text-base font-medium text-gray-900">{{$post->title}}</h2>
-          <button class="text-blue-600 hover:underline">Next →</button>
+          <button class="text-blue-600 hover:underline" @click="back" :disabled="currentIndex === 0">← 上一页</button>
+          <h2 class="text-base font-medium text-gray-900" x-text="currentPost.title"></h2>
+          <!-- Display "Finish" button when on the last post, hide "Next" button -->
+          <template x-if="currentIndex === posts.length - 1">
+            <button @click="close" class="text-blue-600 hover:underline">完成</button>
+          </template>
+          
+          <!-- Display "Next" button except on the last post -->
+          <template x-if="currentIndex < posts.length - 1">
+            <button class="text-blue-600 hover:underline" @click="next">下一页 →</button>
+          </template>
         </div>
 
       </div>

@@ -37,10 +37,10 @@
         <!-- Right Side: Search and Sign In -->
         <div class="flex items-center space-x-4">
             <!-- Search Box -->
-            <input type="text" placeholder="Search..." class="px-4 py-2 rounded-md w-48 border border-gray-300">
+            <input type="text" placeholder="搜索..." class="px-4 py-2 rounded-md w-48 border border-gray-300">
 
             <!-- Sign In Button -->
-            <a href="/login" class="bg-red-700 hover:bg-red-500 text-white px-6 py-2 rounded-md">Sign In</a>
+            <a href="/login" class="bg-red-700 hover:bg-red-500 text-white px-6 py-2 rounded-md">登录</a>
         </div>
 
         <!-- Hamburger Icon (Mobile) -->

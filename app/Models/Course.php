@@ -34,9 +34,9 @@ class Course extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function coursePostMaps(): HasMany
+    public function posts()
     {
-        return $this->hasMany(CoursePostMap::class);
+        return $this->belongsToMany(Post::class, 'course_post_maps', 'course_id', 'post_id');
     }
 
 }

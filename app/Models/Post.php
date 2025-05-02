@@ -23,5 +23,8 @@ class Post extends Model
         'image'
     ];
 
-
+    public function blocks()
+    {
+        return $this->hasMany(Block::class)->orderBy('order');
+    }
 }

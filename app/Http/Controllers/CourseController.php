@@ -19,20 +19,21 @@ class CourseController extends Controller
     public function single($slug) 
     {
         $course = CourseRepository::getBySlug($slug);  
-        $coursePostMaps = $course->coursePostMaps;
+        $coursePosts = $course->posts;
 
         $posts = [];
 
         
-        if($coursePostMaps) {
-            foreach($coursePostMaps as $item) {
+        if($coursePosts) {
+            foreach($coursePosts as $item) {
                 $posts[] = [
-                    'title' => $item->post->title,
+                    'title' => $item->title,
+                    'blocks' => $item->blocks,
                     "read" => false
                 ];
             } 
 
-            $post = $coursePostMaps[0]->post;
+            $post = $coursePosts[0];
         }
         
         return view('course.course', ['course' => $course, 'posts' => $posts, 'post' => $post]);  
