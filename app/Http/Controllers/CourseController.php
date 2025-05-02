@@ -31,8 +31,10 @@ class CourseController extends Controller
                     "read" => false
                 ];
             } 
+
+            $post = $coursePostMaps[0]->post;
         }
         
-        return view('course.course', ['course' => $course, 'posts' => $posts]);  
+        return view('course.course', ['course' => $course, 'posts' => $posts, 'post' => $post]);  
     }
 }

@@ -37,18 +37,13 @@
 
         <!-- Scrollable Content -->
         <div class="flex-1 overflow-y-auto mt-20 mb-20 px-6 py-4">
-          <p class="text-gray-700 mb-4">Here is some scrollable content inside the modal...</p>
-          <div class="space-y-4">
-            @for ($i = 1; $i <= 20; $i++)
-              <p class="text-gray-600">Scrollable line {{ $i }}</p>
-            @endfor
-          </div>
+          @include('course.post')
         </div>
 
         <!-- Footer -->
         <div class="fixed bottom-0 w-full z-10 flex items-center justify-between px-6 py-4 bg-gray-50 border-t border-gray-200">
           <button class="text-blue-600 hover:underline">← Back</button>
-          <h2 class="text-base font-medium text-gray-900">Section Title</h2>
+          <h2 class="text-base font-medium text-gray-900">{{$post->title}}</h2>
           <button class="text-blue-600 hover:underline">Next →</button>
         </div>
 
