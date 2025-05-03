@@ -33,9 +33,8 @@ class CourseController extends Controller
                 ];
             } 
 
-            $post = $coursePosts[0];
         }
         
-        return view('course.course', ['course' => $course, 'posts' => $posts, 'post' => $post]);  
+        return view('course.course', ['course' => $course, 'posts' => $posts]);  
     }
 }
