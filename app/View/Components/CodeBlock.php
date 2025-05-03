@@ -19,16 +19,14 @@ class CodeBlock extends Component
     private function normalize(string $code): string
     {
         $lines = explode("\n", trim($code));
-        $indents = array_filter(array_map(function ($line) {
-            if (trim($line) === '') return null;
-            preg_match('/^\s*/', $line, $matches);
-            return strlen($matches[0]);
-        }, $lines));
-        $minIndent = $indents ? min($indents) : 0;
-
-        return implode("\n", array_map(function ($line) use ($minIndent) {
-            return preg_replace("/^\s{0,$minIndent}/", '', $line);
-        }, $lines));
+    
+        if (empty($lines)) return '';
+    
+        // Normalize just the first line's leading whitespace
+        $firstLine = ltrim($lines[0]);
+        $remainingLines = array_slice($lines, 1);
+    
+        return implode("\n", array_merge([$firstLine], $remainingLines));
     }
 
     /**
