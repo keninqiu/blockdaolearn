@@ -1,1 +1,11 @@
-<pre class="bg-gray-100 text-sm text-gray-800 rounded-lg p-4 overflow-x-auto"><code class="whitespace-pre-line font-mono">{{ $content }}</code></pre>
+<x-code-block :content="
+    'contract Token {
+        mapping(address => uint256) balances;
+
+        function transfer(address to, uint256 amount) public {
+            require(balances[msg.sender] >= amount);
+            balances[msg.sender] -= amount;
+            balances[to] += amount;
+        }
+    }'
+" />
