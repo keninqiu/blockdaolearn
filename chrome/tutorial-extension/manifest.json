@@ -4,7 +4,7 @@
     "version": "1.0",
     "description": "Click through buttons on Etherscan to create a learning video",
     "permissions": ["scripting", "activeTab"],
-    "host_permissions": ["https://defillama.com/*"],
+    "host_permissions": ["https://rainbow.me/*"],
     "background": {
       "service_worker": "background.js"
     },
@@ -13,8 +13,8 @@
     },
     "content_scripts": [
       {
-        "matches": ["https://defillama.com/*"],
-        "js": ["defilama3.js","content.js"]
+        "matches": ["https://rainbow.me/*"],
+        "js": ["steps/rainbowwallet.js","content.js"]
       }
     ]
   }
