@@ -1,18 +1,18 @@
 //allow pasting
 
 var steps = [
-    { delay: 3200,  description: "Rainbow还支持添加观察钱包" },
-    { delay: 3200,  description: "点击钱包地址" },
-    { delay: 3200,  description: "点击添加其他钱包" },
-    { delay: 3200,  description: "点击观察以太坊地址" },
-    { delay: 4000,  description: "输入以太坊地址或ENS名称" },
-    { delay: 5000,  description: "例如输入孙宇晨的钱包地址" },
-    { delay: 3200,  description: "点击观察钱包" },
-    { delay: 4500,  description: "输入名称例如sun" },
-    { delay: 3200,  description: "点完成" }
+    { delay: 4000,  description: "另一种是用法币来购买虚拟货币" },
+    { delay: 2000,  description: "点击购买按钮" },
+    { delay: 3000,  description: "我们可以看到目前它支持" },
+    { delay: 2500,  description: "从MoonPay购买" },
+    { delay: 3000,  description: "和从Coinbase购买两种途径" },
+    { delay: 3000,  description: "选择MoonPay或Coinbase" },
+    { delay: 3000,  description: "完成相应的KYC并付款后" },
+    { delay: 4000,  description: "你的钱包就会收到相对应的币" }
 ];
 
-await new Promise(r => setTimeout(r, 14000));
+
+await new Promise(r => setTimeout(r, 10000));
 
 for (let step of steps) {
     const narrator = document.createElement('div');
@@ -33,5 +33,3 @@ for (let step of steps) {
     await new Promise(r => setTimeout(r, step.delay));
     narrator.remove();
 }
-
-0x3ddfa8ec3052539b6c9549f12cea2c295cff5296
