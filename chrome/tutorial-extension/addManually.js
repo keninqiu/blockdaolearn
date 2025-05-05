@@ -1,21 +1,18 @@
 //allow pasting
 
 var steps = [
-
-    { delay: 3200,  description: "首先我们打开rainbow钱包的官网" },
-    { delay: 3200,  description: "rainbow.me" },
-    { delay: 3200,  description: "点击Download进入下载页面" },
-    { delay: 3200,  description: "有两大类版本" },
-    { delay: 3200,  description: "包括桌面版和手机版" },
-    { delay: 3200,  description: "桌面版支持六大主流的浏览器" },
-    { delay: 3200,  description: "手机版分为IOS和Android版" },
-    { delay: 3200,  description: "本期视频重点讲解Chrome浏览器插件版本" },
-
-    { delay: 3200,  description: "点击Chrome，再点击Add to Chrome，Add extension" },
-    { delay: 3200,  description: "Chrome浏览器插件钱包安装完毕" },
+    { delay: 3200,  description: "Rainbow还支持添加观察钱包" },
+    { delay: 3200,  description: "点击钱包地址" },
+    { delay: 3200,  description: "点击添加其他钱包" },
+    { delay: 3200,  description: "点击观察以太坊地址" },
+    { delay: 4000,  description: "输入以太坊地址或ENS名称" },
+    { delay: 5000,  description: "例如输入孙宇晨的钱包地址" },
+    { delay: 3200,  description: "点击观察钱包" },
+    { delay: 4500,  description: "输入名称例如sun" },
+    { delay: 3200,  description: "点完成" }
 ];
 
-await new Promise(r => setTimeout(r, 5000));
+await new Promise(r => setTimeout(r, 14000));
 
 for (let step of steps) {
     const narrator = document.createElement('div');
@@ -37,3 +34,4 @@ for (let step of steps) {
     narrator.remove();
 }
 
+0x3ddfa8ec3052539b6c9549f12cea2c295cff5296
