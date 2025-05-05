@@ -25,6 +25,13 @@ window.addEventListener("message", (event) => {
       
       await new Promise(r => setTimeout(r, step.delay));
       narrator.remove();
+
+
+      /*
+      <div style="position:fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #1E1E1E; color: #FFD700; padding: 10px 20px; border-radius: 10px; z-index: 9999; font-size: 24px; font-family: sans-serif">点击Add to Chrome，再点 添加到扩展程序，安装完毕</div>
+      */
+
+      
       /* 
       const btn = document.querySelector(step.selector);
       if (btn) {

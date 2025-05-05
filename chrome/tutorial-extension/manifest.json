@@ -4,7 +4,10 @@
     "version": "1.0",
     "description": "Click through buttons on Etherscan to create a learning video",
     "permissions": ["scripting", "activeTab"],
-    "host_permissions": ["https://rainbow.me/*"],
+    "host_permissions": [
+      "https://rainbow.me/*",
+      "https://chromewebstore.google.com/*"
+      ],
     "background": {
       "service_worker": "background.js"
     },
@@ -13,8 +16,11 @@
     },
     "content_scripts": [
       {
-        "matches": ["https://rainbow.me/*"],
+        "matches": [
+          "https://rainbow.me/*",
+          "https://chromewebstore.google.com/*"
+        ],
         "js": ["steps/rainbowwallet.js","content.js"]
       }
     ]
-  }
+}

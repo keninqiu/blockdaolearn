@@ -15,19 +15,4 @@ var steps = [
     { delay: 3200,  description: "那积分应该是空投很重要的参考指标" },
     { delay: 3200,  description: "当然了，这只是社区里很多人的猜测" },
     { delay: 3200,  description: "一切以官方公布为准" },
-
-    { delay: 3200,  description: "首先我们打开rainbow钱包的官网" },
-    { delay: 3200,  description: "rainbow.me" },
-    { delay: 3200,  description: "点击Download进入下载页面" },
-    { delay: 3200,  description: "有两大类版本" },
-    { delay: 3200,  description: "包括桌面版和手机版" },
-    { delay: 3200,  description: "桌面版支持六大主流的浏览器" },
-    { delay: 3200,  description: "手机版分为IOS和Android版" },
-    { delay: 3200,  description: "本期视频重点讲解Chrome浏览器插件版本" },
-
-    { delay: 3200,  description: "点击Chrome，再点击Add to Chrome，Add extension" },
-    { delay: 3200,  description: "Chrome浏览器插件钱包安装完毕" },
-    
-]
-
-
+];
