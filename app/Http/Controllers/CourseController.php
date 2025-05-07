@@ -19,6 +19,8 @@ class CourseController extends Controller
     public function single($slug) 
     {
         $course = CourseRepository::getBySlug($slug);  
+        $course->views += 1;
+        $course->save();
         $coursePosts = $course->posts;
 
         $posts = [];
