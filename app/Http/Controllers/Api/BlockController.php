@@ -24,18 +24,23 @@ class BlockController extends Controller
         $blocks = $request->blocks;
         $finalBlocks = [];
         
+        $ids = [];
+
         foreach($blocks as $index => $block) {
             if(isset($block['id'])) {
                 $item = BlockRepository::update(
                     $block['id'], $postId, $block['type'], $block['content'], $index);
                 $finalBlocks[] = $item;
+                $ids[] = $block['id'];
             } else {
                 $item = BlockRepository::create(
                     $postId, $block['type'], $block['content'], $index);
+                $ids[] = $item['id'];
                 $finalBlocks[] = $item;
             }
-
         }
+
+        BlockRepository::deleteAllNotIn($postId, $ids);
         return response()->json([
             'code' => 0,
             'data' => $finalBlocks,

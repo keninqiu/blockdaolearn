@@ -21,6 +21,7 @@ class BlockRepository {
         $item->save();
         return $item;
     }
+
     static function create(
         $postId, $type, $content, $order
     ) {
@@ -32,5 +33,11 @@ class BlockRepository {
         ];
         $item = Block::create($data);
         return $item;
+    }
+
+    static function deleteAllNotIn($postId, $ids) {
+        return Block::where('post_id', $postId)
+            ->whereNotIn('id', $ids)
+            ->delete();
     }
 }
