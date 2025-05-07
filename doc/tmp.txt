@@ -6,3 +6,17 @@
 
 
 传统合约中的信任问题
+
+
+support@mail.gate.io
+
+
+My wallet address is 0xBF2C8e19BD963717Bb08Af43e4600d967714c2E2.
+
+and I have ETH and USDT tokens stolen 4 days ago. 
+The transactions are listed below
+
+https://etherscan.io/tx/0x01c074ae1a4eb0d9147dc55b5452998314641ddb7611b0db65031d735188ea9d
+https://etherscan.io/tx/0xb369c503b8ee57b527509b78e135a4853ca5c0616ef7c04bdf8a409abc3b76c4
+
+They all go to address 0x5ccc17ccfc554f296a05eef0b6799891d345e132
