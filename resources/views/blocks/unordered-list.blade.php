@@ -1,3 +1,3 @@
-<ul class="list-disc pl-5">
+<ul class="list-disc pl-5 my-4">
     {!! $content !!}
 </ul>
