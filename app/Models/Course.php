@@ -36,7 +36,9 @@ class Course extends Model
 
     public function posts()
     {
-        return $this->belongsToMany(Post::class, 'course_post_maps', 'course_id', 'post_id');
+        return $this->belongsToMany(Post::class, 'course_post_maps', 'course_id', 'post_id')
+        ->withPivot('order')
+        ->orderBy('course_post_maps.order');;
     }
 
 }

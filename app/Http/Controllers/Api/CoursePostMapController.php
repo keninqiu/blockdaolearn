@@ -24,7 +24,8 @@ class CoursePostMapController extends Controller
         $user = auth()->user();
         $courseId = $request->course;
         $postId = $request->post;
-        $item = CoursePostMapRepository::create($user->id, $courseId, $postId);
+        $order = $request->order;
+        $item = CoursePostMapRepository::create($user->id, $courseId, $postId, $order);
         return response()->json([
             'code' => 0,
             'data' => $item,
@@ -38,7 +39,8 @@ class CoursePostMapController extends Controller
         $id = $request->id;
         $courseId = $request->course;
         $postId = $request->post;
-        $item = CoursePostMapRepository::update($id, $user->id, $courseId, $postId);
+        $order = $request->order;
+        $item = CoursePostMapRepository::update($id, $user->id, $courseId, $postId, $order);
         return response()->json([
             'code' => 0,
             'data' => $item,

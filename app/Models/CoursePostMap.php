@@ -20,7 +20,8 @@ class CoursePostMap extends Model
     protected $fillable = [
         'user_id',
         'course_id',
-        'post_id'
+        'post_id',
+        'order'
     ];
 
     public function course(): BelongsTo
