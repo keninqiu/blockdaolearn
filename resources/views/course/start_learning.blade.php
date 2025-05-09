@@ -38,16 +38,16 @@
 
         <!-- Footer -->
         <div class="fixed bottom-0 w-full z-10 flex items-center justify-between px-6 py-4 bg-gray-50 border-t border-gray-200">
-          <button class="text-blue-600 hover:underline" @click="back" :disabled="currentIndex === 0">← 上一页</button>
+          <button class="text-red-500 cursor-pointer hover:text-red-600" @click="back" :disabled="currentIndex === 0">← 上一页</button>
           <h2 class="text-base font-medium text-gray-900" x-text="currentPost.title"></h2>
           <!-- Display "Finish" button when on the last post, hide "Next" button -->
           <template x-if="currentIndex === posts.length - 1">
-            <button @click="close" class="text-blue-600 hover:underline">完成</button>
+            <button @click="close" class="text-red-500 cursor-pointer hover:text-red-600">完成</button>
           </template>
           
           <!-- Display "Next" button except on the last post -->
           <template x-if="currentIndex < posts.length - 1">
-            <button class="text-blue-600 hover:underline" @click="next">下一页 →</button>
+            <button class="text-red-500 cursor-pointer hover:text-red-600" @click="next">下一页 →</button>
           </template>
         </div>
 
