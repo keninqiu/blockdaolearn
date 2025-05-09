@@ -7,10 +7,20 @@
       return this.posts[this.currentIndex];
     },
     next() {
-      if (this.currentIndex < this.posts.length - 1) this.currentIndex++;
+      if (this.currentIndex < this.posts.length - 1) {
+        this.currentIndex++;
+        this.scrollToTop();
+      }
     },
     back() {
-      if (this.currentIndex > 0) this.currentIndex--;
+      if (this.currentIndex > 0) {
+        this.currentIndex--;
+        this.scrollToTop();
+      }
+    },
+    scrollToTop() {
+      // Scroll the modal content to the top
+      this.$refs.modalContent.scrollTop = 0;
     },
     close() {
         this.showModal = false;
@@ -52,7 +62,7 @@
         </div>
 
         <!-- Scrollable Content -->
-        <div class="flex-1 overflow-y-auto mt-20 mb-20 px-6 py-4">
+        <div x-ref="modalContent" class="flex-1 overflow-y-auto mt-20 mb-20 px-6 py-4">
           @foreach ($posts as $index => $p)
             <div x-show="currentIndex === {{ $index }}" x-cloak>
               @include('course.post', ['post' => $p])
