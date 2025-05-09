@@ -34,6 +34,8 @@
     </head>
     <body class="bg-[#FBF9F9] dark:bg-[#0a0a0a] text-[#1b1b18] flex items-center lg:justify-center min-h-screen flex-col">
         <x-menu />
-        @yield('content')
+        <div class="mt-6">
+            @yield('content')
+        </div>
     </body>
 </html>

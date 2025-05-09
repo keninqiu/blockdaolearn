@@ -57,7 +57,7 @@
 
   @include('course.start_learning')
 
-  <div class="container mt-6">
+  <div class="container my-6">
 
   <ul class="w-full divide-y divide-gray-200 bg-white rounded-xl shadow-md">
     @foreach($posts as $post)
