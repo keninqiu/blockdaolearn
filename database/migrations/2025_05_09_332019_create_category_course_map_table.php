@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category_post_maps', function (Blueprint $table) {
+        Schema::create('category_course_maps', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('post_id');
+            $table->unsignedBigInteger('course_id');
             $table->integer('order')->default(0);
-            $table->unique(['category_id', 'post_id']);
+            $table->unique(['category_id', 'course_id']);
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('category_post_maps');
+        Schema::dropIfExists('category_course_maps');
     }
 };

@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CategoryController;
 
 Route::group([], function ($router) {
+    Route::get('categories/type/{type}', [CategoryController::class, 'allByType']);
     Route::get('categories', [CategoryController::class, 'all']);
     Route::get('categories/{slug}', [CategoryController::class, 'getBySlug']);
 });

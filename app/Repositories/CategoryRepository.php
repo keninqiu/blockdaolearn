@@ -5,8 +5,14 @@ use App\Models\Category;
 
 class CategoryRepository {
     static function getAll() {
-        $posts = Category::get();
-        return $posts;
+        $items = Category::get();
+        return $items;
+    }
+
+    static function getAllByType($type)
+    {
+        $items = Category::where('type', $type)->get();
+        return $items;
     }
 
     static function getById($id) {
@@ -18,10 +24,11 @@ class CategoryRepository {
     }
     
     static function update(
-        $id, $slug, $title, $order
+        $id, $type, $slug, $title, $order
     ) {
         $item = Category::find($id);
         
+        $item->type = $type;
         $item->slug = $slug;
         $item->title = $title;
         $item->order = $order;
@@ -30,9 +37,10 @@ class CategoryRepository {
         return $item;
     }
     static function create(
-        $slug, $title, $order
+        $type, $slug, $title, $order
     ) {
         $data = [
+            'type' => $type,
             'slug' => $slug,
             'title' => $title,
             'order' => $order

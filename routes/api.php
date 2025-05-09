@@ -8,4 +8,5 @@ require __DIR__.'/api/lesson.php';
 require __DIR__.'/api/course.php';
 require __DIR__.'/api/team.php';
 require __DIR__.'/api/category-post-map.php';
+require __DIR__.'/api/category-course-map.php';
 require __DIR__.'/api/course-post-map.php';

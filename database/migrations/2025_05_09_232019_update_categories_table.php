@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category_post_maps', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('post_id');
-            $table->integer('order')->default(0);
-            $table->unique(['category_id', 'post_id']);
+        Schema::table('categories', function (Blueprint $table) {
+            $table->string('type'); //blog, course
+            $table->unique(["type", "slug"], 'type_slug');
         });
     }
 
@@ -25,6 +22,5 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('category_post_maps');
     }
 };

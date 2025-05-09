@@ -19,15 +19,26 @@ class CategoryController extends Controller
         ]);
     }
 
+    public function allByType($type)
+    {
+        $items = CategoryRepository::getAllByType($type);    
+        return response()->json([
+            'code' => 0,
+            'data' => $items,
+            'message' => 'Get categories by type successfully'
+        ]);
+    }
+
     public function create(Request $request) 
     {
         $user = auth()->user();
         $slug = $request->slug;
+        $type = $request->type;
         $title = $request->title;
         $order = $request->order;
 
         $item = CategoryRepository::create(
-            $slug, $title, $order
+            $type, $slug, $title, $order
         );
 
         return response()->json([
@@ -41,12 +52,13 @@ class CategoryController extends Controller
     {
         $id = $request->id;
         $slug = $request->slug;
+        $type = $request->type;
         $title = $request->title;
         $order = $request->order;
 
 
         $item = CategoryRepository::update(
-            $id, $slug, $title, $order
+            $id, $type, $slug, $title, $order
         );
 
         return response()->json([
