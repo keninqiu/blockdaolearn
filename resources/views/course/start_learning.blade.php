@@ -1,42 +1,8 @@
 <!-- Alpine Component Wrapper -->
-<div x-data="{
-    showModal: false,
-    posts: window.coursePosts,
-    currentIndex: 0,
-    get currentPost() {
-      return this.posts[this.currentIndex];
-    },
-    next() {
-      if (this.currentIndex < this.posts.length - 1) {
-        this.currentIndex++;
-        this.scrollToTop();
-      }
-    },
-    back() {
-      if (this.currentIndex > 0) {
-        this.currentIndex--;
-        this.scrollToTop();
-      }
-    },
-    scrollToTop() {
-      // Scroll the modal content to the top
-      this.$refs.modalContent.scrollTop = 0;
-    },
-    close() {
-        this.showModal = false;
-    }
-  }" class="relative z-0">
+<div class="relative z-0">
 
   <!-- Trigger Button -->
-  <div class="p-6">
-    <button @click="showModal = true"
-            class="flex items-center gap-3 px-6 py-3 bg-blue-600 text-white rounded-2xl shadow-lg hover:bg-blue-700 transition text-lg font-semibold">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M12 20h9M12 4H3m9 0v16m0 0L9 16m3 4l3-4" />
-    </svg>
-    <span>开始阅读</span>
-    </button>
-  </div>
+
 
   <!-- Modal -->
   <template x-if="showModal">

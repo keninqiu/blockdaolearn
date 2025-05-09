@@ -5,7 +5,33 @@
   window.coursePosts = @json($posts);
 </script>
 
-<div class="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4 w-full">
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4 w-full"  x-data="{
+    showModal: false,
+    posts: window.coursePosts,
+    currentIndex: 0,
+    get currentPost() {
+      return this.posts[this.currentIndex];
+    },
+    next() {
+      if (this.currentIndex < this.posts.length - 1) {
+        this.currentIndex++;
+        this.scrollToTop();
+      }
+    },
+    back() {
+      if (this.currentIndex > 0) {
+        this.currentIndex--;
+        this.scrollToTop();
+      }
+    },
+    scrollToTop() {
+      // Scroll the modal content to the top
+      this.$refs.modalContent.scrollTop = 0;
+    },
+    close() {
+        this.showModal = false;
+    }
+  }">
   <!-- Image -->
   <img src="/{{$course->image}}" alt="{{$course->title}}" class="mb-4 rounded-xl shadow-lg" />
 
@@ -54,14 +80,23 @@
     </div>
   </div>
 
+  <div class="p-6">
+    <button @click="showModal = true"
+            class="flex items-center gap-3 px-6 py-3 bg-blue-600 text-white rounded-2xl shadow-lg hover:bg-blue-700 transition text-lg font-semibold">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 20h9M12 4H3m9 0v16m0 0L9 16m3 4l3-4" />
+    </svg>
+    <span>开始阅读</span>
+    </button>
+  </div>
 
   @include('course.start_learning')
 
   <div class="container my-6">
 
   <ul class="w-full divide-y divide-gray-200 bg-white rounded-xl shadow-md">
-    @foreach($posts as $post)
-    <li class="flex items-center justify-between px-4 py-3 hover:bg-gray-50">
+    @foreach($posts as $index => $post)
+    <li class="flex items-center justify-between px-4 py-3 hover:bg-gray-50" @click="currentIndex = {{ $index }}; showModal = true">
       <div class="flex items-center gap-2">
         <!-- Reading icon -->
         <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
