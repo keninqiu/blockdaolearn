@@ -48,7 +48,7 @@
     </div>
 
     <div class="text-center">
-      <a href="https://t.me/blockdaolearn" target="_blank" class="inline-block px-8 py-3 bg-red-700 hover:bg-red-500 font-bold rounded-full transition text-white">立即加入</a>
+      <a href="https://t.me/blockdaolearn" target="_blank" class="rounded-md px-8 py-3 bg-red-700 hover:bg-red-500 font-bold transition text-white">立即加入</a>
     </div>
   </div>
 @endsection
