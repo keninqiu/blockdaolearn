@@ -5,7 +5,7 @@
    @foreach($courses as $course)
   <div class="bg-white rounded-2xl shadow-md overflow-hidden">
     <a href="/course/{{$course->slug}}">
-    <img src="{{$course->image}}" alt="{{$course->title}}" class="w-full h-48 object-cover">
+    <img src="/{{$course->image}}" alt="{{$course->title}}" class="w-full h-48 object-cover">
     <div class="p-4">
       <h2 class="text-xl font-semibold mb-2">{{$course->title}}</h2>
 
