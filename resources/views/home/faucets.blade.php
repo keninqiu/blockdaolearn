@@ -3,10 +3,10 @@
 <h6 class="mx-auto text-lg text-center font-bold text-gray-600">
   不要让寻找水龙头耽误您的进度
 </h6>
-<h1 class="mx-auto mt-2 text-3xl font-bold tracking-tight sm:text-5xl lg:text-7xl">
+<h1 class="mx-auto mt-2 text-3xl font-bold tracking-tight sm:text-5xl lg:text-7xl text-center">
   免费测试网水龙头
 </h1>
-<p class="mx-auto mt-6 max-w-xl text-lg font-normal sm:max-w-2xl md:text-xl lg:max-w-3xl text-gray-500">
+<p class="mx-auto mt-6 max-w-xl text-lg font-normal sm:max-w-2xl md:text-xl lg:max-w-3xl text-gray-500 text-center">
 在多个区块链上免费领取测试网资金，用于构建你的下一个项目
 </p>
 
