@@ -37,7 +37,7 @@ class Menu extends Component
             [
                 'label' => '资源',
                 'subMenu' => [
-                    ['image' => '/images/minicourse.png', 'title' => '水龙头', 'subtitle' => '获得免费的测试网代币空投到您的钱包以快速构建', 'link' => '#']
+                    ['image' => '/images/minicourse.png', 'title' => '测试网水龙头', 'subtitle' => '获得免费的测试网代币空投到您的钱包以快速构建', 'link' => '/faucets']
                 ]
             ]                        
         ];

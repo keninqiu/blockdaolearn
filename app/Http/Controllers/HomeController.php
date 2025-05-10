@@ -13,4 +13,23 @@ class HomeController extends Controller
     {
         return view('home.telegram');
     }
+
+    public function faucets() 
+    {
+        $faucets = [
+            [
+                "name" => "Etheruem Sepolia",
+                "url" => "https://sepolia-faucet.pk910.de/"
+            ],
+            [
+                "name" => "Tron Nile",
+                "url" => "https://nileex.io/join/getJoinPage"
+            ],     
+            [
+                "name" => "Solana",
+                "url" => "https://solfaucet.com/"
+            ],        
+        ];
+        return view('home.faucets', ['faucets' => $faucets]);
+    }
 }
