@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-
+use App\Repositories\CategoryRepository;
 class Menu extends Component
 {
     public $menuItems;
@@ -14,17 +14,24 @@ class Menu extends Component
      */
     public function __construct()
     {
+        $categories = CategoryRepository::getAllByType('course');
+        $categoryMenu = array_map(function($n) {
+            return [
+                'image' => '',
+                'title' => $n->title,
+                'subtitle' => '',
+                'link' => '/courses/' . $n->slug
+            ];
+        }, $categories->all());
         $this->menuItems = [
             [
                 'label' => '学习',
-                'subMenu' => [
-                    ['image' => '/images/minicourse.png', 'title' => '课程', 'subtitle' => '通过课程开始你的区块链开发者职业生涯', 'link' => '/courses'],
-                ]
+                'subMenu' => $categoryMenu
             ],
             [
                 'label' => '社区',
                 'subMenu' => [
-                    ['image' => '/images/minicourse.png', 'title' => 'Telegram', 'subtitle' => '加入社区 Telegram 获取帮助并与其他学生聊天', 'link' => '#'],
+                    ['image' => '/images/minicourse.png', 'title' => 'Telegram', 'subtitle' => '加入社区 Telegram 获取帮助并与其他学生聊天', 'link' => '/telegram'],
                 ]
             ],
             [

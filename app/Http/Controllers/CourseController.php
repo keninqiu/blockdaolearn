@@ -16,6 +16,12 @@ class CourseController extends Controller
         return view('course.courses', ['courses' => $items]);
     }
 
+    public function allByCategory($slug) 
+    {
+        $items = CourseRepository::allByCategory($slug);  
+        
+        return view('course.courses', ['courses' => $items]);  
+    }
     public function single($slug) 
     {
         $course = CourseRepository::getBySlug($slug);  
