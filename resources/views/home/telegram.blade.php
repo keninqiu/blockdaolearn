@@ -6,7 +6,7 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo" class="mx-auto h-16 mb-4">
       <h2 class="text-2xl font-semibold">@blockdaolearn</h2>
     </div>
-    <h1 class="text-4xl font-bold mb-4 text-center">加入我们的区块链学习频道(Telegram: @)</h1>
+    <h1 class="text-4xl font-bold mb-4 text-center">加入我们的区块链学习频道</h1>
     <p class="text-lg mb-6 text-center">探索区块链技术、智能合约、DeFi、NFTs 等前沿知识，开启你的 Web3 世界之旅！</p>
 
     <div class="grid gap-4 mb-6">
