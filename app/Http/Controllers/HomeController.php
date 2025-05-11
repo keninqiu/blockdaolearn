@@ -14,6 +14,11 @@ class HomeController extends Controller
         return view('home.telegram');
     }
 
+    public function youtube() 
+    {
+        return view('home.youtube');
+    }
+
     public function faucets() 
     {
         $faucets = [

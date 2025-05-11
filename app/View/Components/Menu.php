@@ -31,13 +31,14 @@ class Menu extends Component
             [
                 'label' => '社区',
                 'subMenu' => [
-                    ['image' => '/images/minicourse.png', 'title' => 'Telegram', 'subtitle' => '加入社区 Telegram 获取帮助并与其他学生聊天', 'link' => '/telegram'],
+                    ['image' => '/images/telegram.png', 'title' => 'Telegram', 'subtitle' => '加入社区 Telegram 获取帮助并与其他学生聊天', 'link' => '/telegram'],
+                    ['image' => '/images/youtube.png', 'title' => 'Youtube', 'subtitle' => '加入社区 Youtube 频道获取更多视频', 'link' => '/youtube'],
                 ]
             ],
             [
                 'label' => '资源',
                 'subMenu' => [
-                    ['image' => '/images/minicourse.png', 'title' => '测试网水龙头', 'subtitle' => '获得免费的测试网代币空投到您的钱包以快速构建', 'link' => '/faucets']
+                    ['image' => '/images/faucet.jpg', 'title' => '测试网水龙头', 'subtitle' => '获得免费的测试网代币空投到您的钱包以快速构建', 'link' => '/faucets']
                 ]
             ]                        
         ];
