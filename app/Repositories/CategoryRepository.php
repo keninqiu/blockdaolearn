@@ -5,13 +5,13 @@ use App\Models\Category;
 
 class CategoryRepository {
     static function getAll() {
-        $items = Category::get();
+        $items = Category::orderBy('order')->get();
         return $items;
     }
 
     static function getAllByType($type)
     {
-        $items = Category::where('type', $type)->get();
+        $items = Category::where('type', $type)->orderBy('order')->get();
         return $items;
     }
 

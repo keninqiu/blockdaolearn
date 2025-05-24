@@ -2,6 +2,8 @@
 namespace App\Repositories;
 use Illuminate\Support\Facades\Log;
 use App\Models\Course;
+use App\Models\Category;
+use App\Models\CategoryCourseMap;
 
 class CourseRepository {
     static function getAll() {
@@ -17,6 +19,15 @@ class CourseRepository {
         return Course::where('slug', $slug)->first();
     }
     
+    static function allByCategory($slug)
+    {
+        $category = Category::where('slug', $slug)->first();
+        $categoryCourseMaps = CategoryCourseMap::where('category_id', $category->id)->get();
+        return array_map(function($n) {
+            return $n->course;
+        }, $categoryCourseMaps->all());
+    }
+
     static function update(
         $id, $userId, $slug, $title, $content, $order, $readingTime, $xp, $image
     ) {

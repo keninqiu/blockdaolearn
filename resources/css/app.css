@@ -28,3 +28,14 @@
 }
 
 
+.to-burple {
+  --tw-gradient-to: #765dff var(--tw-gradient-to-position);
+}
+.from-codeOrange {
+  --tw-gradient-from: hsl(var(--codeOrange)) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--codeOrange) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
