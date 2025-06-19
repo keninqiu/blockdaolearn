@@ -27,7 +27,7 @@
     @if($post->image)
     <img src="/{{$post->image}}" alt="{{$post->title}}" class="mb-4 shadow-lg" />
     @endif
-    <div class="space-y-1 container">
+    <div class="container">
         @foreach($post['blocks'] as $block)
             @includeIf('blocks.' . ($block->type ?? 'paragraph'), ['content' => $block->content])
         @endforeach
