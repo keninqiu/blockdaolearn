@@ -3,7 +3,7 @@
 <div class="flex flex-col items-start justify-start min-h-screen p-4">
     <h4 class="text-4xl font-bold dark:text-white text-center">{{ $post->title }}</h4>
     @if($post->description)
-    <p class="text-gray-500 text-center">
+    <p class="text-gray-500 text-center my-3">
       {!! $post->description !!}
     </p>
     @endif
