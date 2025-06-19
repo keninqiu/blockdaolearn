@@ -20,11 +20,17 @@ class Post extends Model
         'user_id',
         'slug',
         'title',
+        'description',
         'image'
     ];
 
     public function blocks()
     {
         return $this->hasMany(Block::class)->orderBy('order');
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

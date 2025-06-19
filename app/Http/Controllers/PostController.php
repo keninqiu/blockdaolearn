@@ -15,4 +15,19 @@ class PostController extends Controller
         
         return view('posts', ['posts' => $items]);
     }
+
+    public function allByCategory($slug) 
+    {
+        $items = PostRepository::allByCategory($slug);  
+        
+        return view('post.posts', ['posts' => $items]);  
+    }
+    public function single($slug) 
+    {
+        $post = PostRepository::getBySlug($slug);  
+        $post->views += 1;
+        $post->save();
+        
+        return view('post.post', ['post' => $post]);  
+    }    
 }

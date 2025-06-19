@@ -14,20 +14,35 @@ class Menu extends Component
      */
     public function __construct()
     {
-        $categories = CategoryRepository::getAllByType('course');
-        $categoryMenu = array_map(function($n) {
+        $courseCategories = CategoryRepository::getAllByType('course');
+        $courseCategoryMenu = array_map(function($n) {
             return [
                 'image' => '',
                 'title' => $n->title,
                 'subtitle' => '',
                 'link' => '/courses/' . $n->slug
             ];
-        }, $categories->all());
+        }, $courseCategories->all());
+
+        $postCategories = CategoryRepository::getAllByType('post');
+        $postCategoryMenu = array_map(function($n) {
+            return [
+                'image' => '',
+                'title' => $n->title,
+                'subtitle' => '',
+                'link' => '/posts/' . $n->slug
+            ];
+        }, $postCategories->all());
+
         $this->menuItems = [
             [
                 'label' => '学习',
-                'subMenu' => $categoryMenu
+                'subMenu' => $courseCategoryMenu
             ],
+            [
+                'label' => '新闻',
+                'subMenu' => $postCategoryMenu
+            ],            
             [
                 'label' => '社区',
                 'subMenu' => [

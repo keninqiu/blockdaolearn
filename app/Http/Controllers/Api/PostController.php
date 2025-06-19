@@ -24,6 +24,7 @@ class PostController extends Controller
         $user = auth()->user();
         $slug = $request->slug;
         $title = $request->title;
+        $description = $request->description;
 
         $image= '';
         // Store the file
@@ -37,7 +38,7 @@ class PostController extends Controller
         }
 
         $post = PostRepository::create(
-            $user->id, $slug, $title, $image
+            $user->id, $slug, $title, $description, $image
         );
 
         return response()->json([
@@ -53,6 +54,7 @@ class PostController extends Controller
         $user = auth()->user();
         $slug = $request->slug;
         $title = $request->title;
+        $description = $request->description;
         $image= '';
         // Store the file
         if ($request->file('image')) {
@@ -65,7 +67,7 @@ class PostController extends Controller
         }
 
         $post = PostRepository::update(
-            $id, $user->id, $slug, $title, $image
+            $id, $user->id, $slug, $title, $description, $image
         );
 
         return response()->json([
