@@ -7,12 +7,14 @@ use App\Models\CategoryPostMap;
 
 class PostRepository {
     static function getTops($num) {
-        $posts = Post::orderBy('id', 'desc')->take($num)->get();
+        $posts = Post::whereNotNull('image')
+        ->where('image', '!=', '')->orderBy('id', 'desc')->take($num)->get();
         return $posts;
     }
 
     static function getAll() {
-        $posts = Post::get();
+        $posts = Post::whereNotNull('image')
+        ->where('image', '!=', '')->get();
         return $posts;
     }
 
