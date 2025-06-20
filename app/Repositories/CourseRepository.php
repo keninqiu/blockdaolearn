@@ -6,6 +6,11 @@ use App\Models\Category;
 use App\Models\CategoryCourseMap;
 
 class CourseRepository {
+    static function getTops($num) {
+        $posts = Course::orderBy('id', 'desc')->take($num)->get();
+        return $posts;
+    }
+
     static function getAll() {
         $posts = Course::get();
         return $posts;
@@ -29,11 +34,12 @@ class CourseRepository {
     }
 
     static function update(
-        $id, $userId, $slug, $title, $content, $order, $readingTime, $xp, $image
+        $id, $userId, $slug, $emoji, $title, $content, $order, $readingTime, $xp, $image
     ) {
         $item = Course::find($id);
         $item->user_id = $userId;
         $item->slug = $slug;
+        $item->emoji = $emoji;
         $item->title = $title;
         $item->content = $content;
         $item->order = $order;
@@ -47,11 +53,12 @@ class CourseRepository {
         return $item;
     }
     static function create(
-        $userId, $slug, $title, $content, $order, $readingTime, $xp, $image
+        $userId, $slug, $emoji, $title, $content, $order, $readingTime, $xp, $image
     ) {
         $data = [
             'user_id' => $userId,
             'slug' => $slug,
+            'emoji' => $emoji,
             'title' => $title,
             'content' => $content,
             'order' => $order,

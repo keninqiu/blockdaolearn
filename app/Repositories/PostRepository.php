@@ -6,6 +6,11 @@ use App\Models\Category;
 use App\Models\CategoryPostMap;
 
 class PostRepository {
+    static function getTops($num) {
+        $posts = Post::orderBy('id', 'desc')->take($num)->get();
+        return $posts;
+    }
+
     static function getAll() {
         $posts = Post::get();
         return $posts;
@@ -29,11 +34,12 @@ class PostRepository {
     }
 
     static function update(
-        $id, $userId, $slug, $title, $description, $image
+        $id, $userId, $slug, $emoji, $title, $description, $image
     ) {
         $post = Post::find($id);
         $post->user_id = $userId;
         $post->slug = $slug;
+        $post->emoji = $emoji;
         $post->title = $title;
         $post->description = $description;
         if($image) {
@@ -44,11 +50,12 @@ class PostRepository {
         return $post;
     }
     static function create(
-        $userId, $slug, $title, $description, $image
+        $userId, $slug, $emoji, $title, $description, $image
     ) {
         $postData = [
             'user_id' => $userId,
             'slug' => $slug,
+            'emoji' => $emoji,
             'title' => $title,
             'description' => $description,
             'image' => $image

@@ -23,6 +23,8 @@ class CourseController extends Controller
     {
         $user = auth()->user();
         $slug = $request->slug;
+        
+        $emoji = $request->emoji;
         $title = $request->title;
         $content = $request->content;
         $order = $request->order;
@@ -41,7 +43,7 @@ class CourseController extends Controller
         }
 
         $item = CourseRepository::create(
-            $user->id, $slug, $title, $content, $order, $readingTime, $xp, $image
+            $user->id, $slug, $emoji, $title, $content, $order, $readingTime, $xp, $image
         );
 
         return response()->json([
@@ -56,6 +58,7 @@ class CourseController extends Controller
         $user = auth()->user();
         $id = $request->id;
         $slug = $request->slug;
+        $emoji = $request->emoji;
         $title = $request->title;
         $content = $request->content;
         $order = $request->order;
@@ -74,7 +77,7 @@ class CourseController extends Controller
         }
 
         $item = CourseRepository::update(
-            $id, $user->id, $slug, $title, $content, $order, $readingTime, $xp, $image
+            $id, $user->id, $slug, $emoji, $title, $content, $order, $readingTime, $xp, $image
         );
 
         return response()->json([

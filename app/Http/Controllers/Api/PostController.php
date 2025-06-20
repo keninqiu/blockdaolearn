@@ -23,6 +23,7 @@ class PostController extends Controller
     {
         $user = auth()->user();
         $slug = $request->slug;
+        $emoji = $request->emoji;
         $title = $request->title;
         $description = $request->description;
 
@@ -38,7 +39,7 @@ class PostController extends Controller
         }
 
         $post = PostRepository::create(
-            $user->id, $slug, $title, $description, $image
+            $user->id, $slug, $emoji, $title, $description, $image
         );
 
         return response()->json([
@@ -53,6 +54,7 @@ class PostController extends Controller
         $id = $request->id;
         $user = auth()->user();
         $slug = $request->slug;
+        $emoji = $request->emoji;
         $title = $request->title;
         $description = $request->description;
         $image= '';
@@ -67,7 +69,7 @@ class PostController extends Controller
         }
 
         $post = PostRepository::update(
-            $id, $user->id, $slug, $title, $description, $image
+            $id, $user->id, $slug, $emoji, $title, $description, $image
         );
 
         return response()->json([

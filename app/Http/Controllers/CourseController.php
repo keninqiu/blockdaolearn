@@ -9,12 +9,7 @@ use Illuminate\Support\Facades\Log;
 
 class CourseController extends Controller
 {
-    public function all() 
-    {
-        $items = CourseRepository::getAll();  
-        
-        return view('course.courses', ['courses' => $items]);
-    }
+
 
     public function allByCategory($slug) 
     {

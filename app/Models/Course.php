@@ -20,6 +20,7 @@ class Course extends Model
     protected $fillable = [
         'user_id',
         'slug',
+        'emoji',
         'title',
         'content',
         'order',
