@@ -3,6 +3,7 @@ namespace App\Schedulers;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
+use App\Utils\ChatGPTUtil;
 
 class GenerateNewsAgent {
 
@@ -28,10 +29,6 @@ class GenerateNewsAgent {
             'cointelegraph' => [
                 'type' => 'rss',
                 'url' => 'https://cointelegraph.com/rss'
-            ],
-            'theblock' => [
-                'type' => 'rss',
-                'url' => 'https://www.theblock.co/latest.rss'
             ],
             // add more sources or HTML type scrapers as needed
         ];
@@ -173,10 +170,14 @@ class GenerateNewsAgent {
             $publishedAt = null;
         }
 
+
+
+        //$title = ChatGPTUtil::rewriteToChinese($title);
+
         Log::info('title is:' . $title);
         Log::info('description is:' . $description);
         Log::info('url is:' . $url);
-        Log::info('raw is:' . $raw);
+        //Log::info('raw is:' . $raw);        
         /*
         // store
         $slug = News::generateSlug($title);
