@@ -3,7 +3,7 @@
 
     <!-- Logo -->
     <a href="/" class="flex items-center space-x-2">
-      <img src="/images/logo.png" alt="Logo" class="h-10 w-auto">
+      <img src="/images/logo_small.png" alt="Logo" class="h-10 w-auto">
       <span class="text-xl font-bold text-gray-800 hidden sm:inline">链道学堂</span>
     </a>
 
