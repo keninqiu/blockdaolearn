@@ -64,7 +64,7 @@ class NewsUtil
             if (empty($content)) {
                 if (str_contains($url, 'coindesk.com')) {
                     // CoinDesk 正文在 class="document-body"
-                    $crawler->filter('.document-body')->each(function ($node) use (&$content) {
+                    $crawler->filter('.document-body')->slice(0, 2)->each(function ($node) use (&$content) {
 
                         // 获取所有 <p> 标签
                         $node->filter('p')->each(function ($p) use (&$content) {

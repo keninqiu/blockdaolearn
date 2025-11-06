@@ -14,7 +14,7 @@ class PostRepository {
 
     static function getAll() {
         $posts = Post::whereNotNull('image')
-        ->where('image', '!=', '')->get();
+        ->where('image', '!=', '')->orderBy('id', 'desc')->get();
         return $posts;
     }
 
